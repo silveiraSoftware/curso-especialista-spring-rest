@@ -8,7 +8,7 @@ public class AlgafoodApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.print("hello");
+		System.out.print("hello1");
 	}
 
 }
