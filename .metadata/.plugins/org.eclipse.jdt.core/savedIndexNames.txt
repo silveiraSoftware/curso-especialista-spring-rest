@@ -1,0 +1,10 @@
+INDEX VERSION 1.131+D:\2020\applications\Java\workspace-spring-tool-suite-4-4.8.1.RELEASE\curso-especialista-spring-rest\.metadata\.plugins\org.eclipse.jdt.core
+591621902.index
+736289530.index
+4079544754.index
+2686065999.index
+2347667080.index
+1933541631.index
+1789777388.index
+2699812489.index
+1752736230.index
