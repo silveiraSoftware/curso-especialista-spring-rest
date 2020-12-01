@@ -4,15 +4,19 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tab_cozinha")
+@Table(name="tab_restaurante")
 public class Restaurante {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name="nm_cozinha")
+	
+	@Column(name="nm_restaurante", length=30)
 	private String nome;
 	
 	@Column(name="taxa_frete")
