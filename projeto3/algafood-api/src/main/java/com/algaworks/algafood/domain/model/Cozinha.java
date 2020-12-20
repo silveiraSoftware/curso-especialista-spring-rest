@@ -5,11 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+//import lombok.Getter;
+//import javax.persistence.Table;
+//import lombok.Setter;
+
+//@Getter
+//@Setter
+@Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 //@Table(name="tab_cozinha")
 public class Cozinha {
+	@EqualsAndHashCode.Include 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -17,6 +27,7 @@ public class Cozinha {
 	@Column(/*name="nm_cozinha",*/ length=30)
 	private String nome;
 	
+	/*
 	public Long getId() {
 		return id;
 	}
@@ -29,6 +40,7 @@ public class Cozinha {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -58,5 +70,6 @@ public class Cozinha {
 			return false;
 		return true;
 	}
+	*/
 	
 }
