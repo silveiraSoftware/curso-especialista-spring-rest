@@ -5,11 +5,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+//import lombok.Getter;
+//import lombok.Setter;
 //import javax.persistence.Table;
 
+/*@Getter
+@Setter
+@EqualsAndHashCode
+*/
+/*
+ * @Data e @EqualsAndHashCode são do Lombok, para que o lombok funcione no projeto debe 
+ * ser inserida a extensão do lombok no IDE e debe ser importado o plugin do lombok no arquivo pom do projeto. 
+ * 
+ * */
+@Data  
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 //@Table(name="tab_cozinha")
 public class Cozinha {
+	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -17,6 +34,7 @@ public class Cozinha {
 	@Column(/*name="nm_cozinha",*/ length=30)
 	private String nome;
 	
+	/*
 	public Long getId() {
 		return id;
 	}
@@ -29,6 +47,7 @@ public class Cozinha {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -58,5 +77,5 @@ public class Cozinha {
 			return false;
 		return true;
 	}
-	
+	*/
 }
