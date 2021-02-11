@@ -11,9 +11,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 //import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 //@Table(name="restaurante")
 public class Restaurante {
+	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -24,6 +30,7 @@ public class Restaurante {
 	@Column(name="taxa_frete")
 	private BigDecimal taxaFrete;
 
+	/*
 	public Long getId() {
 		return id;
 	}
@@ -84,6 +91,7 @@ public class Restaurante {
 			return false;
 		return true;
 	}
+	*/
 	
 	
 	
