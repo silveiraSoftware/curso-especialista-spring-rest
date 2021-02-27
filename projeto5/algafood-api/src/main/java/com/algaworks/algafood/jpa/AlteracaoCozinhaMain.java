@@ -19,7 +19,7 @@ public class AlteracaoCozinhaMain {
 		
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
-		cozinha.setNome("Indian");
+		cozinha.setNome("Indian1");
 		
 		cozinhaRepository.adicionar(cozinha);
 		
