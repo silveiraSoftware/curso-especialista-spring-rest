@@ -1,6 +1,6 @@
 package com.algaworks.algafood.jpa;
 
-import java.text.DecimalFormat;
+//import java.text.DecimalFormat;
 //import java.text.NumberFormat;
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class ConsultaRestauranteMain {
 				.run(args);
 		RestauranteRepository cozinhaRepository = applicationContext.getBean(RestauranteRepository.class);
 		
-		List<Restaurante> restaurantes = cozinhaRepository.todos();
+		List<Restaurante> restaurantes = cozinhaRepository.listar();
 		
 		for(Restaurante restaurante: restaurantes) {
 			//System.out.println(restaurante.getNome());
@@ -27,11 +27,16 @@ public class ConsultaRestauranteMain {
 			//nf.setMaximumFractionDigits(3);//seto o máximo de casas decimais para 2
 			//String taxaFreteFormatado = nf.format(restaurante.getTaxaFrete());
 			
+			/*
 			DecimalFormat formatter = new DecimalFormat("#.00");
 			
 			String taxaFreteFormatado = formatter.format(restaurante.getTaxaFrete());
 			
 			System.out.printf("O restaurante: %s, tem taxa de frete igual a: %s %n",restaurante.getNome(),taxaFreteFormatado);
+			*/
+			System.out.printf("%s - %f - %s\n", restaurante.getNome(),
+			restaurante.getTaxaFrete(), restaurante.getCozinha().getNome());
+			
 		}
 		
 	}

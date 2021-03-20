@@ -31,7 +31,7 @@ public class Cozinha {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(/*name="nm_cozinha",*/ length=30)
+	@Column(/*name="nm_cozinha",*/ length=30, nullable = false)
 	private String nome;
 	
 	/*

@@ -1,6 +1,6 @@
 package com.algaworks.algafood.jpa;
 
-import java.text.DecimalFormat;
+//import java.text.DecimalFormat;
 
 //import java.util.List;
 
@@ -19,21 +19,19 @@ public class BuscaRestauranteMain {
 				.run(args);
 		RestauranteRepository restauranteRepository = applicationContext.getBean(RestauranteRepository.class);
 		
+		Restaurante restaurante = restauranteRepository.buscar(1L);
+		
 		/*
-		List<Cozinha> cozinhas = cadastroCozinha.listar();
-		
-		for(Cozinha cozinha: cozinhas) {
-			System.out.println(cozinha.getNome());
-		}*/
-		
-		Restaurante restaurante = restauranteRepository.porId(1L);
-		
 		DecimalFormat formatter = new DecimalFormat("#.00");
 		
 		String taxaFreteFormatado = formatter.format(restaurante.getTaxaFrete());
 		
 		System.out.printf("O restaurante: %s, tem taxa de frete igual a: %s %n",restaurante.getNome(),taxaFreteFormatado);
 		//System.out.println(restaurante.getNome());
+		
+		*/
+		//System.out.printf("O restaurante: %s, tem taxa de frete igual a: %f\n",restaurante.getNome(),restaurante.getTaxaFrete());
+		System.out.printf("O restaurante: %s\n",restaurante.getNome());
 		
 	}
 }
