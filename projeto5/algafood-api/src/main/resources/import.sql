@@ -1,2 +1,2 @@
-insert into cozinha (id,nome) values (1,'Indiana'),(2,'Brasilenha'),(3,'Cubana');
+insert into cozinha (id,nome) values (1,'Indiana'),(2,'Brasilenha'),(3,'Cubana'),(4,'chines'),(5,'americano');
 insert into restaurante (nome,taxa_frete,cozinha_id) values ('Rest Indiano',11.2,1),('Rest Brasilenho',10.00,2),('Rest Cubano',01.00,3),('Rest Cubanito',02.00,3);
