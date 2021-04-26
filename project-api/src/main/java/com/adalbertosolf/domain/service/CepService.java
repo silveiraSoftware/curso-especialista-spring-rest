@@ -1,18 +1,34 @@
 package com.adalbertosolf.domain.service;
 
+//import java.lang.reflect.Field;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+/*
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-
+*/
 //import org.springframework.boot.web.reactive.function.client.WebClientCustomizer;
 //import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+
+import com.adalbertosolf.domain.model.DadosCep;
+
+import reactor.core.publisher.Mono;
+
 
 @Service
 public class CepService {
 
+	@Autowired
+	//private WebClient.Builder webClientBuilder;
+	private WebClient webClient;
+	
+	/*
 	public String getDadosCEP(String cep){
 		String json;
 		try {
@@ -37,5 +53,40 @@ public class CepService {
             throw new RuntimeException(e);
 	    }
 	}
+	*/
+	/*
+	public Object getDadosCEP(String cep){
+		Object result =  webClientBuilder.build()
+						.get()
+						.uri("http://viacep.com.br/ws/"+ cep +"/json")
+						.retrieve()
+						.bodyToMono(Object.class)
+						//.collectList()
+						.block();
+		 return result;
+	}
+	*/
+	//public DadosCep getDadosCEP(String cep){
+	public String getDadosCEP(String cep){
+		Mono<DadosCep> result =  this.webClient
+				//.get()
+				.method(HttpMethod.GET)
+				.uri("/ws/{cep}/json",cep)
+				//.uri("/ws/"+cep+"/json")
+				.retrieve()
+				.bodyToMono(DadosCep.class);
+				
+		result.subscribe(p -> {
+					//return 1;// "{cep:"+p.getCep()+"}";
+					System.out.println("{'cep':"+p.getCep()+"}");
+				});
+				
+		
+		DadosCep dadosCep = result.block(); 
+		//return dadosCep;
+		return dadosCep.saida();
+				
+	}
+	
 	
 }
