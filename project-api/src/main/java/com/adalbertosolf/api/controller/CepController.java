@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 //import org.springframework.web.reactive.function.client.WebClient;
 
 import com.adalbertosolf.domain.service.CepService;
-
+//import com.fasterxml.jackson.annotation.JsonInclude;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+//@JsonInclude(Include.NOT_NULL)
 @RestController
 @RequestMapping(value = "/api/consultacep")
 public class CepController {
@@ -17,7 +19,7 @@ public class CepController {
 	private CepService cepService;
 	
 	@GetMapping(value="/{cep}")
-    public ResponseEntity<Object> consultaCEP(@PathVariable("cep") String cep) throws Exception {		
+	public ResponseEntity<Object> consultaCEP(@PathVariable("cep") String cep) throws Exception {		
 		
 		try {
 		

@@ -66,8 +66,8 @@ public class CepService {
 		 return result;
 	}
 	*/
-	//public DadosCep getDadosCEP(String cep){
-	public String getDadosCEP(String cep){
+	public DadosCep getDadosCEP(String cep){
+	//public String getDadosCEP(String cep){
 		Mono<DadosCep> result =  this.webClient
 				//.get()
 				.method(HttpMethod.GET)
@@ -79,12 +79,23 @@ public class CepService {
 		result.subscribe(p -> {
 					//return 1;// "{cep:"+p.getCep()+"}";
 					System.out.println("{'cep':"+p.getCep()+"}");
+					//return 
 				});
 				
 		
+		//DadosCep dadosCep = result.block(); 
+		
 		DadosCep dadosCep = result.block(); 
-		//return dadosCep;
-		return dadosCep.saida();
+		DadosCep dadosCep2 = new DadosCep(dadosCep.getCep(),dadosCep.getLogradouro(),null,null,null,null,null,null,null,null);
+		return dadosCep2;
+		
+		/*
+		DadosCep dadosCep = Mono.zip(result,result).map(tuple ->{
+			DadosCep dadosCep2 = new DadosCep(tuple.getT1().getCep(),tuple.getT1().getLogradouro(),null,null,null,null,null,null,null,null);
+			return dadosCep2;
+		}).block();
+		*/
+		//return dadosCep.saida();
 				
 	}
 	
